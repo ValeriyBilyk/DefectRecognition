@@ -6,11 +6,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { UploadedPhotosPageComponent } from './uploaded-photos-page/uploaded-photos-page.component';
 
 const appRoutes: Routes = [
   {
     path: 'main',
-    component: MainPageComponent
+    component: MainPageComponent,
+    children: [
+      {
+        path: 'uploadedPhotos',
+        component: UploadedPhotosPageComponent
+      }
+    ]
   },
   { path: '',
     redirectTo: '/main',
@@ -21,7 +28,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent
+    MainPageComponent,
+    UploadedPhotosPageComponent
   ],
   imports: [
     BrowserModule,
