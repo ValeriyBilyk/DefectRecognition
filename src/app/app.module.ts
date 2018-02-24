@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { UploadedPhotosPageComponent } from './uploaded-photos-page/uploaded-photos-page.component';
+import { SharedModule } from './shared/shared.module';
 
 const appRoutes: Routes = [
   {
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
