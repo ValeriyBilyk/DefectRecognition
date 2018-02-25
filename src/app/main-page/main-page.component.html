@@ -1,8 +1,8 @@
 <div class="dr-navigation d-flex align-items-center justify-content-between">
   <ul class="d-flex p-0 m-0">
-    <li>Uploaded photos</li>
-    <li>Analyzed photos</li>
-    <li>Statistics</li>
+    <li><a routerLink="/main/uploaded-photos" [ngClass]="{'dr-active-link': checkCurrentRoute('/main/uploaded-photos')}">Uploaded photos</a></li>
+    <li><a routerLink="/main/analyzed-photos" [ngClass]="{'dr-active-link': checkCurrentRoute('/main/analyzed-photos')}">Analyzed photos</a></li>
+    <li><a routerLink="/main/statistics" [ngClass]="{'dr-active-link': checkCurrentRoute('/main/statistics')}">Statistics</a></li>
   </ul>
   <div class="mr-3">
     <i class="fa fa-user dr-profile mr-1" aria-hidden="true"></i>

@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { UploadedPhotosPageComponent } from './uploaded-photos-page/uploaded-photos-page.component';
 import { SharedModule } from './shared/shared.module';
+import { AnalyzedPhotosPageComponent } from './analyzed-photos-page/analyzed-photos-page.component';
+import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
 
 const appRoutes: Routes = [
   {
@@ -15,8 +17,16 @@ const appRoutes: Routes = [
     component: MainPageComponent,
     children: [
       {
-        path: 'uploadedPhotos',
+        path: 'uploaded-photos',
         component: UploadedPhotosPageComponent
+      },
+      {
+        path: 'analyzed-photos',
+        component: AnalyzedPhotosPageComponent
+      },
+      {
+        path: 'statistics',
+        component: StatisticsPageComponent
       }
     ]
   },
@@ -30,7 +40,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MainPageComponent,
-    UploadedPhotosPageComponent
+    UploadedPhotosPageComponent,
+    AnalyzedPhotosPageComponent,
+    StatisticsPageComponent
   ],
   imports: [
     BrowserModule,
