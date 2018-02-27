@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,8 +10,13 @@ import { UploadedPhotosPageComponent } from './uploaded-photos-page/uploaded-pho
 import { SharedModule } from './shared/shared.module';
 import { AnalyzedPhotosPageComponent } from './analyzed-photos-page/analyzed-photos-page.component';
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 const appRoutes: Routes = [
+  {
+    path: 'login',
+    component: LoginPageComponent
+  },
   {
     path: 'main',
     component: MainPageComponent,
@@ -42,7 +47,8 @@ const appRoutes: Routes = [
     MainPageComponent,
     UploadedPhotosPageComponent,
     AnalyzedPhotosPageComponent,
-    StatisticsPageComponent
+    StatisticsPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,8 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
