@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ChartModule } from 'angular2-highcharts';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -11,6 +13,11 @@ import { SharedModule } from './shared/shared.module';
 import { AnalyzedPhotosPageComponent } from './analyzed-photos-page/analyzed-photos-page.component';
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+
+export function highchartsFactory() {
+
+  return require('highcharts');
+}
 
 const appRoutes: Routes = [
   {
@@ -59,9 +66,15 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HighchartsStatic,
+      useFactory: highchartsFactory
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
