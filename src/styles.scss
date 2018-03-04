@@ -10,3 +10,22 @@ body {
   margin: 0 !important;
   background-color: #fafafa;
 }
+
+.dr-btn-input {
+  border-radius: 2px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dr-btn-blue-input {
+  background-color: #3897f0;
+  border: solid #3897f0;
+  color: #fff;
+  outline: none;
+}
+
+.dr-input {
+  background-color: #fafafa;
+}
