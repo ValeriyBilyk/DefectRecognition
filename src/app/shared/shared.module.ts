@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListPhotoComponent } from './list-photo/list-photo.component';
 import { ListPhotoItemComponent } from './list-photo-item/list-photo-item.component';
 import { ListAdjustmentComponent } from './list-adjustment/list-adjustment.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   imports: [
@@ -11,12 +12,14 @@ import { ListAdjustmentComponent } from './list-adjustment/list-adjustment.compo
   declarations: [
     ListPhotoComponent,
     ListPhotoItemComponent,
-    ListAdjustmentComponent
+    ListAdjustmentComponent,
+    ModalComponent
   ],
   exports: [
     ListPhotoComponent,
     ListPhotoItemComponent,
-    ListAdjustmentComponent
+    ListAdjustmentComponent,
+    ModalComponent
   ]
 })
 export class SharedModule { }
