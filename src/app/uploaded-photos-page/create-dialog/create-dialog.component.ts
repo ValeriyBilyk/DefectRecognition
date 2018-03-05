@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,8 +7,6 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./create-dialog.component.scss']
 })
 export class CreateDialogComponent {
-
-  @Input() name;
 
   constructor(public activeModal: NgbActiveModal) {}
 

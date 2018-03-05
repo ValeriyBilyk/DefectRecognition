@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListPhotoComponent } from './list-photo/list-photo.component';
 import { ListPhotoItemComponent } from './list-photo-item/list-photo-item.component';
 import { ListAdjustmentComponent } from './list-adjustment/list-adjustment.component';
-import { ModalComponent } from './modal/modal.component';
+import { ModalService } from './modal.service';
 
 @NgModule({
   imports: [
@@ -12,14 +12,15 @@ import { ModalComponent } from './modal/modal.component';
   declarations: [
     ListPhotoComponent,
     ListPhotoItemComponent,
-    ListAdjustmentComponent,
-    ModalComponent
+    ListAdjustmentComponent
   ],
   exports: [
     ListPhotoComponent,
     ListPhotoItemComponent,
-    ListAdjustmentComponent,
-    ModalComponent
+    ListAdjustmentComponent
+  ],
+  providers: [
+    ModalService
   ]
 })
 export class SharedModule { }

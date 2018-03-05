@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalData } from '../shared/modal/modal-data';
 import { CreateDialogComponent } from './create-dialog/create-dialog.component';
+import { ModalService } from '../shared/modal.service';
 
 @Component({
   selector: 'app-uploaded-photos-page',
@@ -9,15 +9,15 @@ import { CreateDialogComponent } from './create-dialog/create-dialog.component';
 })
 export class UploadedPhotosPageComponent implements OnInit {
 
-  public modalData = new ModalData(false, null);
-
-  constructor() { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit() {
   }
 
   handlePhotoClick() {
-    this.modalData = new ModalData(true, CreateDialogComponent);
+    this.modalService.open(CreateDialogComponent)
+      .then((value) => console.log(value))
+      .catch((error) => console.log(error));
   }
 
 }
