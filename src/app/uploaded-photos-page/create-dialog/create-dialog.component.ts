@@ -25,6 +25,6 @@ export class CreateDialogComponent {
   }
 
   public handleFileSelection(file: File) {
-    debugger;
+
   }
 }

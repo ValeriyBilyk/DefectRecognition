@@ -10,6 +10,7 @@
 }
 
 .dr-photo-list-item {
+  position: relative;
   margin-top: 20px;
   width: 65%;
   min-width: 550px;
@@ -24,4 +25,31 @@
 .dr-stone-img {
   width: 245px;
   height: 220px;
+}
+
+.dr-dropdown {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  .dr-btn-dropdown {
+    border: transparent;
+    background: transparent;
+    outline: none;
+    font-size: 1.5rem;
+    color: #212529;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .dr-dropdown-menu {
+    top: 28px !important;
+    left: -42px !important;
+  }
+}
+
+.dropdown-toggle::after {
+  display: none;
 }
