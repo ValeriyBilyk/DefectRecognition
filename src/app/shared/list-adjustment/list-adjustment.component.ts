@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-list-adjustment',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListAdjustmentComponent implements OnInit {
 
+  @Output() uploadPhotoClick = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleUploadPhotoClick() {
+    this.uploadPhotoClick.emit();
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateDialogComponent } from './create-dialog/create-dialog.component';
+import { ModalService } from '../shared/modal.service';
 
 @Component({
   selector: 'app-uploaded-photos-page',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadedPhotosPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit() {
+  }
+
+  handlePhotoClick() {
+    this.modalService.open(CreateDialogComponent)
+      .then((value) => console.log(value))
+      .catch((error) => console.log(error));
   }
 
 }
