@@ -15,6 +15,7 @@ import { AnalyzedPhotosPageComponent } from './analyzed-photos-page/analyzed-pho
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateDialogComponent } from './uploaded-photos-page/create-dialog/create-dialog.component';
+import { DeleteDialogComponent } from './uploaded-photos-page/delete-dialog/delete-dialog.component';
 
 export function highchartsFactory() {
 
@@ -58,7 +59,8 @@ const appRoutes: Routes = [
     AnalyzedPhotosPageComponent,
     StatisticsPageComponent,
     LoginPageComponent,
-    CreateDialogComponent
+    CreateDialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ const appRoutes: Routes = [
     }
   ],
   entryComponents: [
-    CreateDialogComponent
+    CreateDialogComponent,
+    DeleteDialogComponent
   ],
   bootstrap: [AppComponent]
 })
