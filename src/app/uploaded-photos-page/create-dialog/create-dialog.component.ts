@@ -20,7 +20,6 @@ export class CreateDialogComponent {
   constructor(public activeModal: NgbActiveModal) {}
 
   public onSubmit() {
-    const v = this.form;
     this.activeModal.close('Close click');
   }
 

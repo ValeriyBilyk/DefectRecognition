@@ -6,6 +6,7 @@ import { ListAdjustmentComponent } from './list-adjustment/list-adjustment.compo
 import { ModalService } from './modal.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InputFileComponent } from './input-file/input-file.component';
+import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 
 @NgModule({
   imports: [
@@ -16,13 +17,15 @@ import { InputFileComponent } from './input-file/input-file.component';
     ListPhotoComponent,
     ListPhotoItemComponent,
     ListAdjustmentComponent,
-    InputFileComponent
+    InputFileComponent,
+    DropdownMenuComponent
   ],
   exports: [
     ListPhotoComponent,
     ListPhotoItemComponent,
     ListAdjustmentComponent,
-    InputFileComponent
+    InputFileComponent,
+    DropdownMenuComponent
   ],
   providers: [
     ModalService
