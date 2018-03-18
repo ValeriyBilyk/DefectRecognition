@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DropdownMenuConfig} from '../dropdown-menu/dropdown-menu-config';
+import {ListConfig} from '../list-photo/list-config';
 
 @Component({
   selector: 'app-list-photo-item',
@@ -7,6 +8,9 @@ import {DropdownMenuConfig} from '../dropdown-menu/dropdown-menu-config';
   styleUrls: ['./list-photo-item.component.scss']
 })
 export class ListPhotoItemComponent implements OnInit {
+
+  @Input() listConfig: ListConfig;
+  @Output() handleAction = new EventEmitter();
 
   public dropdownConfig = [
     new DropdownMenuConfig('edit', 'Edit photo'),
@@ -19,7 +23,7 @@ export class ListPhotoItemComponent implements OnInit {
   }
 
   public onItemSelected(item: DropdownMenuConfig) {
-
+    this.handleAction.emit({action: item.id, modelType: this.listConfig.modelType});
   }
 
 }

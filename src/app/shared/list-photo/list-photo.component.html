@@ -1,10 +1,9 @@
-<app-list-adjustment (uploadPhotoClick)="handlePhotoClick()"></app-list-adjustment>
+<app-list-adjustment [listConfig]="listConfig" (uploadPhotoClick)="handlePhotoClick()"></app-list-adjustment>
 <div class="dr-list-content">
   <div class="d-flex flex-column justify-content-center">
-    <app-list-photo-item *ngFor="let item of items"></app-list-photo-item>
+    <app-list-photo-item [listConfig]="listConfig" (handleAction)="handleAction($event)" *ngFor="let item of items"></app-list-photo-item>
   </div>
   <div class="d-flex justify-content-center mt-4">
     <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
   </div>
 </div>
-

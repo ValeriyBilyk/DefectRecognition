@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ListConfig} from '../list-photo/list-config';
 
 @Component({
   selector: 'app-list-adjustment',
@@ -7,6 +8,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class ListAdjustmentComponent implements OnInit {
 
+  @Input() listConfig: ListConfig;
   @Output() uploadPhotoClick = new EventEmitter();
 
   constructor() { }
