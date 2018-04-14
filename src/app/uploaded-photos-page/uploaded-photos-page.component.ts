@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ListConfig} from '../shared/list-photo/list-config';
+import {PhotoService} from '../services/photo.service';
 
 @Component({
   selector: 'app-uploaded-photos-page',
@@ -8,10 +9,13 @@ import {ListConfig} from '../shared/list-photo/list-config';
 })
 export class UploadedPhotosPageComponent implements OnInit {
 
+  photos: any;
+
   public listConfig = new ListConfig(ListConfig.UPLOADED_PHOTO, true, true, true, true, true);
 
-  constructor() { }
+  constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
+    this.photoService.getPhotos().subscribe(items => this.photos = items);
   }
 }

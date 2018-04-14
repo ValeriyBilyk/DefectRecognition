@@ -10,6 +10,7 @@ import {ListConfig} from '../list-photo/list-config';
 export class ListPhotoItemComponent implements OnInit {
 
   @Input() listConfig: ListConfig;
+  @Input() item: any;
   @Output() handleAction = new EventEmitter();
 
   public dropdownConfig = [

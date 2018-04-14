@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChartModule } from 'angular2-highcharts';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -16,6 +17,7 @@ import { StatisticsPageComponent } from './statistics-page/statistics-page.compo
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateDialogComponent } from './uploaded-photos-page/create-dialog/create-dialog.component';
 import { DeleteDialogComponent } from './uploaded-photos-page/delete-dialog/delete-dialog.component';
+import { PhotoService } from './services/photo.service';
 
 export function highchartsFactory() {
 
@@ -73,13 +75,15 @@ const appRoutes: Routes = [
     SharedModule,
     ReactiveFormsModule,
     ChartModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
-    }
+    },
+    PhotoService
   ],
   entryComponents: [
     CreateDialogComponent,
