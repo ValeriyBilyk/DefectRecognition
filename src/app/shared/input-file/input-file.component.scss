@@ -1,0 +1,21 @@
+.dr-input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.dr-file-label {
+  border: 1px solid rgba(0,0,0,.15);
+  padding: .1rem .75rem;
+  border-radius: .25rem;
+  color: #495057;
+  display: inline-block;
+}
+
+.dr-file-label:focus,
+.dr-file-label:hover {
+  cursor: pointer;
+}

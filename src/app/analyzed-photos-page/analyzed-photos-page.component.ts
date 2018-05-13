@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ListConfig} from '../shared/list-photo/list-config';
 
 @Component({
   selector: 'app-analyzed-photos-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./analyzed-photos-page.component.scss']
 })
 export class AnalyzedPhotosPageComponent implements OnInit {
+
+  public listConfig = new ListConfig(ListConfig.ANALYZED_PHOTO, false, true, true, true, false);
 
   constructor() { }
 

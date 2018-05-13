@@ -1,0 +1,10 @@
+<div *ngIf="items" ngbDropdown class="d-inline-block dr-dropdown">
+  <button class="dr-btn-dropdown" id="dropdownBasic1" ngbDropdownToggle>
+    <i class="fa fa-circle" aria-hidden="true"></i>
+    <i class="fa fa-circle" aria-hidden="true"></i>
+    <i class="fa fa-circle" aria-hidden="true"></i>
+  </button>
+  <div class="dr-dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <button *ngFor="let item of items" class="dropdown-item" (click)="onItemClick(item)">{{item.value}}</button>
+  </div>
+</div>

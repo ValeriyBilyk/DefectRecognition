@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChartModule } from 'angular2-highcharts';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -15,6 +16,10 @@ import { AnalyzedPhotosPageComponent } from './analyzed-photos-page/analyzed-pho
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateDialogComponent } from './uploaded-photos-page/create-dialog/create-dialog.component';
+import { DeleteDialogComponent } from './uploaded-photos-page/delete-dialog/delete-dialog.component';
+import { PhotoService } from './services/photo.service';
+import { AnalyzeDialogComponent } from './uploaded-photos-page/analyze-dialog/analyze-dialog.component';
+import { AnalyzeAllDialogComponent } from './uploaded-photos-page/analyze-all-dialog/analyze-all-dialog.component';
 
 export function highchartsFactory() {
 
@@ -58,7 +63,10 @@ const appRoutes: Routes = [
     AnalyzedPhotosPageComponent,
     StatisticsPageComponent,
     LoginPageComponent,
-    CreateDialogComponent
+    CreateDialogComponent,
+    DeleteDialogComponent,
+    AnalyzeDialogComponent,
+    AnalyzeAllDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -71,16 +79,21 @@ const appRoutes: Routes = [
     SharedModule,
     ReactiveFormsModule,
     ChartModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
-    }
+    },
+    PhotoService
   ],
   entryComponents: [
-    CreateDialogComponent
+    CreateDialogComponent,
+    DeleteDialogComponent,
+    AnalyzeDialogComponent,
+    AnalyzeAllDialogComponent
   ],
   bootstrap: [AppComponent]
 })

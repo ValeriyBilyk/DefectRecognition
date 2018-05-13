@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateDialogComponent } from './create-dialog/create-dialog.component';
-import { ModalService } from '../shared/modal.service';
+import {ListConfig} from '../shared/list-photo/list-config';
+import {PhotoService} from '../services/photo.service';
 
 @Component({
   selector: 'app-uploaded-photos-page',
@@ -9,15 +9,13 @@ import { ModalService } from '../shared/modal.service';
 })
 export class UploadedPhotosPageComponent implements OnInit {
 
-  constructor(private modalService: ModalService) { }
+  photos: any;
+
+  public listConfig = new ListConfig(ListConfig.UPLOADED_PHOTO, true, true, true, true, true);
+
+  constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
+    // this.photoService.getPhotos().subscribe(items => this.photos = items);
   }
-
-  handlePhotoClick() {
-    this.modalService.open(CreateDialogComponent)
-      .then((value) => console.log(value))
-      .catch((error) => console.log(error));
-  }
-
 }

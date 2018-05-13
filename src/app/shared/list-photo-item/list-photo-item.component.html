@@ -1,9 +1,10 @@
 <div class="row dr-photo-list-item">
   <div class="col-7">
-    <img class="dr-stone-img" src="../../../assets/red-stone.jpg">
+    <img class="dr-stone-img" [src]="item.source">
   </div>
   <div class="col-5 d-flex flex-column">
-    <div>name: Red stone</div>
+    <div>name: {{item.name}}</div>
     <div>company: SpaceX</div>
   </div>
+  <app-dropdown-menu [items]="dropdownConfig" (onItemSelected)="onItemSelected($event, item)"></app-dropdown-menu>
 </div>

@@ -6,8 +6,9 @@ export class ModalService {
 
   constructor(private modalService: NgbModal) {}
 
-  open(component: Component): Promise<any> {
+  open(component: Component, inputValues?): Promise<any> {
     const modalRef = this.modalService.open(component);
+    Object.assign(modalRef.componentInstance, inputValues);
 
     return modalRef.result;
   }
