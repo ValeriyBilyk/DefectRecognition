@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup} from '@angular/forms';
+import {PhotoService} from '../../services/photo.service';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -9,11 +10,15 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class DeleteDialogComponent {
 
-  public form = new FormGroup ({});
+  @Input() photoId;
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal, private photoService: PhotoService) {}
 
   public onSubmit() {
+
+    // debugger;
+    this.photoService.deletePhoto(this.photoId).subscribe();
+
     this.activeModal.close('Close click');
   }
 

@@ -23,8 +23,8 @@ export class ListPhotoItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onItemSelected(item: DropdownMenuConfig) {
-    this.handleAction.emit({action: item.id, modelType: this.listConfig.modelType});
+  public onItemSelected(config: DropdownMenuConfig, item) {
+    this.handleAction.emit({action: config.id, modelType: this.listConfig.modelType, item});
   }
 
 }

@@ -6,5 +6,5 @@
     <div>name: {{item.name}}</div>
     <div>company: SpaceX</div>
   </div>
-  <app-dropdown-menu [items]="dropdownConfig" (onItemSelected)="onItemSelected($event)"></app-dropdown-menu>
+  <app-dropdown-menu [items]="dropdownConfig" (onItemSelected)="onItemSelected($event, item)"></app-dropdown-menu>
 </div>

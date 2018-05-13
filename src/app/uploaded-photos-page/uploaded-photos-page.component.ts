@@ -16,6 +16,6 @@ export class UploadedPhotosPageComponent implements OnInit {
   constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
-    this.photoService.getPhotos().subscribe(items => this.photos = items);
+    // this.photoService.getPhotos().subscribe(items => this.photos = items);
   }
 }
