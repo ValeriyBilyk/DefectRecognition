@@ -10,6 +10,7 @@ export class ListAdjustmentComponent implements OnInit {
 
   @Input() listConfig: ListConfig;
   @Output() uploadPhotoClick = new EventEmitter();
+  @Output() analyzeAllPhotos = new EventEmitter();
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class ListAdjustmentComponent implements OnInit {
 
   handleUploadPhotoClick() {
     this.uploadPhotoClick.emit();
+  }
+
+  handleAnalyzeAllClick() {
+    this.analyzeAllPhotos.emit();
   }
 
 }

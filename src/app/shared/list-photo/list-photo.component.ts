@@ -4,6 +4,8 @@ import {ModalService} from '../modal.service';
 import {ListConfig} from './list-config';
 import {PhotoService} from '../../services/photo.service';
 import {DeleteDialogComponent} from '../../uploaded-photos-page/delete-dialog/delete-dialog.component';
+import {AnalyzeDialogComponent} from '../../uploaded-photos-page/analyze-dialog/analyze-dialog.component';
+import {AnalyzeAllDialogComponent} from '../../uploaded-photos-page/analyze-all-dialog/analyze-all-dialog.component';
 
 @Component({
   selector: 'app-list-photo',
@@ -15,6 +17,7 @@ export class ListPhotoComponent implements OnInit {
   actionMap = {
     edit: this.edit.bind(this),
     delete: this.delete.bind(this),
+    analyze: this.analyze.bind(this)
   };
 
   public page = 3;
@@ -25,12 +28,12 @@ export class ListPhotoComponent implements OnInit {
   constructor(private modalService: ModalService, private photoService: PhotoService) { }
 
   ngOnInit() {
-    this.photoService.getPhotos().subscribe(items => this.items = items);
+    this.getPhotos();
   }
 
   handlePhotoClick() {
     this.modalService.open(CreateDialogComponent)
-      .then((value) => this.photoService.getPhotos().subscribe(items => this.items = items))
+      .then((value) => this.getPhotos())
       .catch((error) => console.log(error));
   }
 
@@ -44,8 +47,24 @@ export class ListPhotoComponent implements OnInit {
 
   delete(model) {
     this.modalService.open(DeleteDialogComponent, {photoId: model.item.id})
-      .then((value) => this.photoService.getPhotos().subscribe(items => this.items = items))
+      .then((value) => this.getPhotos())
       .catch((error) => console.log(error));
+  }
+
+  analyze(model) {
+    this.modalService.open(AnalyzeDialogComponent, {photoId: model.item.id})
+      .then(() => this.getPhotos())
+      .catch((error) => console.log(error));
+  }
+
+  analyzeAll() {
+    this.modalService.open(AnalyzeAllDialogComponent)
+      .then(() => this.getPhotos())
+      .catch((error) => console.log(error));
+  }
+
+  private getPhotos() {
+    this.photoService.getPhotos(this.listConfig.modelType === ListConfig.UPLOADED_PHOTO ? 'false' : 'true').subscribe(items => this.items = items);
   }
 
 }

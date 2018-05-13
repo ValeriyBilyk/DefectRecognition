@@ -1,4 +1,4 @@
-<app-list-adjustment [listConfig]="listConfig" (uploadPhotoClick)="handlePhotoClick()"></app-list-adjustment>
+<app-list-adjustment [listConfig]="listConfig" (uploadPhotoClick)="handlePhotoClick()" (analyzeAllPhotos)="analyzeAll()"></app-list-adjustment>
 <div class="dr-list-content">
   <div class="d-flex flex-column justify-content-center">
     <app-list-photo-item [item]="item" [listConfig]="listConfig" (handleAction)="handleAction($event)" *ngFor="let item of items"></app-list-photo-item>

@@ -3,11 +3,11 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {PhotoService} from '../../services/photo.service';
 
 @Component({
-  selector: 'app-delete-dialog',
-  templateUrl: './delete-dialog.component.html',
-  styleUrls: ['./delete-dialog.component.scss']
+  selector: 'app-analyze-dialog',
+  templateUrl: './analyze-dialog.component.html',
+  styleUrls: ['./analyze-dialog.component.scss']
 })
-export class DeleteDialogComponent {
+export class AnalyzeDialogComponent {
 
   @Input() photoId;
 
@@ -15,7 +15,7 @@ export class DeleteDialogComponent {
 
   public onSubmit() {
 
-    this.photoService.deletePhoto(this.photoId).subscribe(res => this.activeModal.close('Close click'));
+    this.photoService.analyzePhoto(this.photoId).subscribe(res => this.activeModal.close('Close click'));
   }
 
 }
