@@ -1,10 +1,15 @@
 <div class="row dr-photo-list-item">
   <div class="col-7">
-    <img class="dr-stone-img" [src]="item.source">
+    <img class="dr-stone-img" [src]="isAnalyzedPhoto ? (item.result && item.result.source) : item.source">
   </div>
   <div class="col-5 d-flex flex-column">
-    <div>name: {{item.name}}</div>
+    <div>name: <span class="{{isAnalyzedPhoto && 'dr-link'}}" (click)="navigateToDetailsPage()">{{item.name}}</span></div>
     <div>company: SpaceX</div>
   </div>
   <app-dropdown-menu [items]="dropdownConfig" (onItemSelected)="onItemSelected($event, item)"></app-dropdown-menu>
+  <div *ngIf="isAnalyzedPhoto" class="dr-defect-checker">
+    {{item.result && item.result.is_damaged ? 'Stone is broken' : 'Stone is unbroken'}}
+    <i *ngIf="item.result && !item.result.is_damaged" class="fa fa-check dr-check" aria-hidden="true"></i>
+    <i *ngIf="item.result && item.result.is_damaged" class="fa fa-ban dr-ban" aria-hidden="true"></i>
+  </div>
 </div>

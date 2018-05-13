@@ -1,22 +1,11 @@
-@import '../../../styles';
-
-:host{
-  display: flex;
-  justify-content: center;
-}
-
-.dr-default-flex-grow {
-  flex-grow: 1;
-}
-
-.dr-photo-list-item {
+.dr-photo-item {
   position: relative;
   margin-top: 20px;
   width: 65%;
   min-width: 550px;
   max-width: 750px;
   padding: 20px;
-  height: 310px;
+  height: 22rem;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
   border-radius: 2px;
   background-color: #fff;
@@ -31,8 +20,4 @@
 .dr-stone-img {
   width: 245px;
   height: 220px;
-}
-
-.dr-link {
-  cursor: pointer;
 }

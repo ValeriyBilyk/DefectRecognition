@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {DropdownMenuConfig} from '../dropdown-menu/dropdown-menu-config';
 import {ListConfig} from '../list-photo/list-config';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-photo-item',
@@ -13,19 +14,31 @@ export class ListPhotoItemComponent implements OnInit, OnChanges {
   @Input() item: any;
   @Output() handleAction = new EventEmitter();
 
+  public isAnalyzedPhoto: boolean;
+
   public dropdownConfig = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   ngOnChanges() {
     this.initDropdownMenu();
+    this.isAnalyzedPhoto = this.listConfig && this.listConfig.modelType === ListConfig.ANALYZED_PHOTO;
   }
 
   public onItemSelected(config: DropdownMenuConfig, item) {
     this.handleAction.emit({action: config.id, modelType: this.listConfig.modelType, item});
+  }
+
+  public navigateToDetailsPage() {
+    if (!this.isAnalyzedPhoto) {
+
+      return;
+    }
+
+    this.router.navigate([`/main/${this.item.id}/details`]);
   }
 
   private initDropdownMenu() {
