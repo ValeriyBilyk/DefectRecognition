@@ -20,7 +20,7 @@ export class ListPhotoComponent implements OnInit {
     analyze: this.analyze.bind(this)
   };
 
-  public page = 3;
+  public page = 1;
 
   @Input() listConfig: ListConfig;
   @Input() items;

@@ -8,7 +8,7 @@
   </div>
   <app-dropdown-menu [items]="dropdownConfig" (onItemSelected)="onItemSelected($event, item)"></app-dropdown-menu>
   <div *ngIf="isAnalyzedPhoto" class="dr-defect-checker">
-    {{item.result && item.result.is_damaged ? 'Stone is broken' : 'Stone is unbroken'}}
+    {{item.result && item.result.is_damaged ? 'Stone is broken' : 'Stone is not broken'}}
     <i *ngIf="item.result && !item.result.is_damaged" class="fa fa-check dr-check" aria-hidden="true"></i>
     <i *ngIf="item.result && item.result.is_damaged" class="fa fa-ban dr-ban" aria-hidden="true"></i>
   </div>
