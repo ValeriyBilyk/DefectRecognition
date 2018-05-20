@@ -42,6 +42,11 @@ const appRoutes: Routes = [
     component: MainPageComponent,
     children: [
       {
+        path: '',
+        redirectTo: '/main/uploaded-photos',
+        pathMatch: 'full'
+      },
+      {
         path: 'uploaded-photos',
         component: UploadedPhotosPageComponent
       },
@@ -60,7 +65,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: '',
-    redirectTo: '/main',
+    redirectTo: '/main/uploaded-photos',
     pathMatch: 'full'
   },
 ];
