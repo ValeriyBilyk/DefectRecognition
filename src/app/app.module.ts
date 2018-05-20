@@ -21,6 +21,7 @@ import { PhotoService } from './services/photo.service';
 import { AnalyzeDialogComponent } from './uploaded-photos-page/analyze-dialog/analyze-dialog.component';
 import { AnalyzeAllDialogComponent } from './uploaded-photos-page/analyze-all-dialog/analyze-all-dialog.component';
 import { AnalyzedPhotoDetailsComponent } from './analyzed-photos-page/analyzed-photo-details/analyzed-photo-details.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 export function highchartsFactory() {
 
@@ -31,6 +32,10 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginPageComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignUpComponent
   },
   {
     path: 'main',
@@ -72,7 +77,8 @@ const appRoutes: Routes = [
     DeleteDialogComponent,
     AnalyzeDialogComponent,
     AnalyzeAllDialogComponent,
-    AnalyzedPhotoDetailsComponent
+    AnalyzedPhotoDetailsComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
